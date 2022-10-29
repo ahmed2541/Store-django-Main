@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+  {% csrf_token %}
+  
+  
+  <p>Logged out!</p>
+  <a  class="boxed-btn3 w-100" href="{% url 'login'%}">Click here to login again.</a>
+{% endblock content %}

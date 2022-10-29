@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>XSTORE</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="{% static 'css/style.min.css' %}" rel="stylesheet">
+  <style type="text/css">
+    html,
+    body,
+    header,
+    .carousel {
+      height: 60vh;
+    }
+
+    @media (max-width: 740px) {
+
+      html,
+      body,
+      header,
+      .carousel {
+        height: 100vh;
+      }
+    }
+
+    @media (min-width: 800px) and (max-width: 850px) {
+
+      html,
+      body,
+      header,
+      .carousel {
+        height: 100vh;
+      }
+    }
+    .pro{
+      text-align: center;
+      background-color: #fff;
+      display: inline-block !important;
+      float: right;
+      margin-left: 450px;
+      max-width: 100%;
+      height: 400px;
+      padding: 50px;
+      margin-top: -370px;
+      color:rgb(16, 60, 61);
+    
+    }
+    .inp{
+  
+      background-color: #fff;
+      border-radius: 5px;
+      float: right;
+      margin-top: -250px;
+      text-align: center;
+      
+      margin-right: -470px;
+      width:150px;
+      height: 30px;
+      background-color: #6a11cb;
+      
+      color: #fff;
+    
+    }
+    .inp:hover{
+      background-color: #44006b;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <br>
+  <br>
+  <br>
+  <br> 
+{% include 'navbar.html' %}
+
+
+
+<hr class="mt-0 mb-4">
+<div class="container mb-4">
+    <div class="row gutters">
+        <div class="col-md-12 ">
+
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="account-settings ">
+                        <div class="user-profile">
+                            <div class=" col-md-4">
+                              {% if profile.image %}
+                              <img src="{{ profile.image.url }}" class=" img-fluid" alt="...">
+                              {% else %}
+                              <img src="{% static 'img/images.jpg'%}" class="img-fluid" alt="...">
+                              {% endif %}
+                            </div>
+
+                            <div class="pro col-md-6">
+                              
+                                <h1 class="user-name">Name : {{profile.user.first_name}} {{profile.user.last_name}}</h1>
+                                <hr >
+                                <h3 class=" user-email">Your Email :{{profile.user.email}}</h3>
+                                <hr >
+                                <h2>Phone Number :+{{profile.phone_number}}</h2>
+                                <hr >
+                            </div>
+                        </div>
+                        <div class="about col-md-10 mt-3">
+                            <h2></h2>
+                            <p></p>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div class=" col-md-4 mt-5">
+                        <a class="inp col-md-6 " type="submit"  href="{% url 'accounts:edit_profile' %}">Edit Profile</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+</div>
+
+{% include 'footer.html' %}
+</html>

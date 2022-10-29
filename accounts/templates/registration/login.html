@@ -1,0 +1,47 @@
+{% extends "base_generic.html" %}
+{% load bootstrap4 %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+  {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
+
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>Your account doesn't have access to this page. To proceed,
+      please login with an account that has access.</p>
+    {% else %}
+      <p>Please login to see this page.</p>
+    {% endif %}
+  {% endif %}
+
+  <form method="post" action="{% url 'login' %}" class="col-lg-8 mx-auto">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <center>
+      <input class="boxed-btn3 w-50" type="submit" value="login" >
+      <input type="hidden" name="next" value="{{ next }}">
+    </center>
+    
+  </form>
+
+  
+  <center>
+    {# Assumes you setup the password_reset view in your URLconf #}
+    <p><a href="{% url 'password_reset' %}">Lost password?</a></p><br>
+    <span ><a href="{% url 'accounts:signup' %}" class="boxed-btn3 w-50">signup</a></span>
+
+  </center>
+  
+<br>
+<br>
+
+{% endblock %}

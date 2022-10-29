@@ -1,2 +1,2 @@
 "# Store-django-Main" 
-"# Store-django-Main" 
+"#all basics except order and cart" 
